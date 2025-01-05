@@ -5,7 +5,7 @@ const SplitHeader = ({ department, title, subtitle, date = "04 JAN 2025", fonts 
     <div>
       <div className="grid grid-cols-2 gap-8">
         <div className="border-r-2 border-black pr-8">
-          <div className={`text-6xl font-bold tracking-tight ${fonts.display}`}>
+          <div className={`text-4xl lg:text-5xl font-bold tracking-tight leading-tight ${fonts.display}`}>
             {department.toUpperCase()}
           </div>
         </div>
