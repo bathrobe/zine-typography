@@ -8,7 +8,7 @@ const ClassifiedBlock = ({
   fonts
 }) => {
   return (
-    <div className="border-4 border-black p-8">
+          <div className="border-4 border-black p-8">
       <div className="flex justify-between items-start mb-8">
         <div className="flex items-center space-x-4">
           <div className="w-12 h-12 border-2 border-black rounded-full flex items-center justify-center">
