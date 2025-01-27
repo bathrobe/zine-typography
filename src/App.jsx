@@ -12,9 +12,12 @@ import IlluminatedBlock from "./components/IlluminatedBlock";
 import SigilBlock from "./components/SigilBlock";
 import AuthorBio from "./components/AuthorBio";
 import TocEntry from "./components/TocEntry";
+import BrutalistQuote from "./components/BrutalistQuote";
+import TechnicalQuote from "./components/TechnicalQuote";
+import DecreeQuote from "./components/DecreeQuote";
 import { toPng } from "html-to-image";
 import { mastheadContent } from "./data/mastheadContent";
-import MastheadForm from "./components/MastheadForm";
+import MastheadForm, { fieldsets } from "./components/MastheadForm";
 
 const mastheadComponents = {
   split: SplitHeader,
@@ -23,6 +26,10 @@ const mastheadComponents = {
   brutalist: BrutalistHeader,
   manifesto: ManifestoHeader,
   redacted: RedactedHeader,
+  brutalistQuote: BrutalistQuote,
+  technicalQuote: TechnicalQuote,
+  decreeQuote: DecreeQuote,
+  author: AuthorBio,
 };
 
 // Hardcoded fonts
@@ -60,9 +67,23 @@ function App() {
     };
 
     try {
+      // Get the first field based on the selected masthead type
+      const firstField = fieldsets[selectedMasthead]?.[0];
+      const content = mastheadValues[firstField] || "";
+      // Create a filename-safe version of the content (truncate at 30 chars, remove special chars)
+      const safeContent = content
+        .slice(0, 30)
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-+|-+$/g, "");
+
+      const filename = safeContent
+        ? `${selectedMasthead}-${safeContent}`
+        : selectedMasthead;
+
       const dataUrl = await toPng(element, options);
       const link = document.createElement("a");
-      link.download = `${selectedMasthead}-export.png`;
+      link.download = `${filename}.png`;
       link.href = dataUrl;
       link.click();
     } catch (err) {
@@ -90,13 +111,15 @@ function App() {
           <div id="masthead-preview" className="relative w-[800px]">
             <button
               onClick={exportHighRes}
-              className="absolute top-4 right-4 bg-black text-white px-4 py-2 rounded export-button"
+              className="absolute top-4 right-4 bg-black text-white px-4 py-2 rounded export-button z-10"
             >
               Export
             </button>
-            {CurrentMasthead && (
-              <CurrentMasthead {...mastheadValues} fonts={fonts} />
-            )}
+            <div className="flex justify-center">
+              {CurrentMasthead && (
+                <CurrentMasthead {...mastheadValues} fonts={fonts} />
+              )}
+            </div>
           </div>
         </div>
 

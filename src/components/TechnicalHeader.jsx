@@ -7,27 +7,29 @@ const TechnicalHeader = ({
   fonts,
 }) => {
   return (
-    <div className={fonts.mono}>
-      <div className="flex items-baseline mb-8">
-        <div className="text-sm w-32">REF://</div>
-        <div className="text-sm text-gray-600">
-          {date}//{department.toLowerCase().replace(/\s+/g, "_")}
-        </div>
+    <div className={`${fonts.mono} w-[600px]`}>
+      <div className="flex items-baseline gap-4 mb-8 text-xs text-gray-600">
+        <div>REF://{date}</div>
+        <div className="uppercase tracking-wider">INTERNAL</div>
       </div>
-      <div className="border-l border-gray-300 pl-4">
-        <div className="flex items-baseline">
-          <div className="w-32 text-sm">DEPT://</div>
-          <div className={`text-base tracking-wide ${fonts.display}`}>
-            {department}
+
+      <div className="border-l-4 border-black pl-6 py-2">
+        <div className={`text-sm uppercase tracking-wider mb-6 ${fonts.mono}`}>
+          {department}
+        </div>
+
+        <div
+          className={`text-4xl font-bold leading-tight mb-6 ${fonts.display}`}
+        >
+          {title}
+        </div>
+
+        <div className="flex items-center gap-4">
+          <div className="w-6 h-6 border-2 border-black flex items-center justify-center text-sm">
+            ©
           </div>
+          <div className="w-16 h-[1px] bg-black"></div>
         </div>
-        <div className="flex mt-6">
-          <div className="w-32 text-sm">TITLE://</div>
-          <h1 className={`text-3xl font-bold leading-tight ${fonts.body}`}>
-            {title}
-          </h1>
-        </div>
-        <div className="mt-4 ml-32 w-16 h-1 bg-gray-300"></div>
       </div>
     </div>
   );

@@ -11,25 +11,32 @@ const FormalHeader = ({
 }) => {
   return (
     <div className="text-center">
-      <div className={`text-5xl mb-2 ${fonts.body}`}>©</div>
-      <div
-        className={`text-xs tracking-widest uppercase mb-2 ${fonts.display}`}
-      >
-        Concept Country
+      {/* Logo Group */}
+      <div className="mb-8">
+        <div className={`text-5xl mb-1 ${fonts.body}`}>©</div>
+        <div className={`text-xs tracking-widest uppercase ${fonts.display}`}>
+          Concept Country
+        </div>
       </div>
-      <div
-        className={`text-2xl font-bold uppercase tracking-wide mb-3 ${fonts.display}`}
-      >
-        {department}
+
+      {/* Title Group */}
+      <div className="mb-8">
+        <div
+          className={`text-sm text-gray-500 uppercase tracking-wide mb-1 ${fonts.display}`}
+        >
+          From the Office of {officeOf}
+        </div>
+        <div
+          className={`text-2xl font-bold uppercase tracking-wide ${fonts.display}`}
+        >
+          {department}
+        </div>
       </div>
-      <div
-        className={`text-sm text-gray-500 uppercase tracking-wide mb-4 ${fonts.display}`}
-      >
-        From the Office of {officeOf}
-      </div>
-      <h1 className={`text-xl mb-2 ${fonts.body}`}>{title}</h1>
-      <div className={`text-sm text-gray-600 mb-2 ${fonts.mono}`}>
-        by {author}
+
+      {/* Author Group */}
+      <div>
+        <h1 className={`text-xl mb-1 ${fonts.body}`}>{title}</h1>
+        <div className={`text-sm text-gray-600 ${fonts.mono}`}>by {author}</div>
       </div>
     </div>
   );

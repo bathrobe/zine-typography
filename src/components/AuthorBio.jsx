@@ -13,7 +13,7 @@ const AuthorBio = ({
       {/* Avatar placeholder with institutional feel */}
       <div className="w-20 h-20 flex-shrink-0 bg-gray-100 border-2 border-black relative">
         <img
-          src="/portrait.png"
+          src="/kojin.png"
           alt="Author avatar"
           className="absolute inset-0 w-full h-full object-cover"
         />

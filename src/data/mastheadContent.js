@@ -98,4 +98,27 @@ scan complete`,
       length: "18 min",
     },
   ],
+  brutalistQuote: {
+    quote:
+      "The network state is the operating system on which we run our collective consciousness",
+    section: "Chapter 3: Digital Sovereignty",
+    context: "Core Principle",
+  },
+  technicalQuote: {
+    quote:
+      "In the space between bits and consciousness, we find the true nature of digital sovereignty",
+    section: "GOVERNANCE // PHILOSOPHY",
+    context: "Key Insight",
+  },
+  redacted: {
+    department: "Office of Cognitive Operations",
+    title: "The Right to Bear Cognitive Arms",
+    clearance: "TOP SECRET // NOETIC-7",
+    date: "04 JAN 2025",
+  },
+  decreeQuote: {
+    quote:
+      "A well-regulated cognitive militia, being necessary to the security of a free network state, the right of the people to keep and bear cognitive arms, shall not be infringed.",
+    context: "AMENDMENT I",
+  },
 };

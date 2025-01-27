@@ -3,31 +3,54 @@ import React from "react";
 const RedactedHeader = ({
   department,
   title,
-  date = new Date().toLocaleDateString(),
+  clearance = "TOP SECRET // NOETIC-7",
   fonts,
 }) => {
   return (
-    <div className="relative border-2 border-black p-6">
-      <div className="max-w-2xl">
-        <div className={`flex items-center gap-4 mb-6`}>
-          <div className={`text-sm ${fonts.mono}`}>
-            REF: {Math.random().toString(36).substring(2, 8).toUpperCase()}
+    <div className="w-[650px]">
+      {/* Top Classification Bar */}
+      <div
+        className={`flex items-center justify-between mb-8 ${fonts.mono} text-xs`}
+      >
+        <div className="flex items-center gap-4">
+          <div className="w-8 h-8 border-2 border-black flex items-center justify-center">
+            ©
           </div>
-          <div className="flex-1 h-[1px] bg-black"></div>
-          <div className={`text-sm ${fonts.mono}`}>{date}</div>
+          <div className="font-bold tracking-wider">{clearance}</div>
+        </div>
+        <div className="text-gray-600">
+          DOC://{Math.random().toString(36).substring(2, 8).toUpperCase()}
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <div className="border-y-2 border-black py-8">
+        {/* Department with redaction bars */}
+        <div className="relative mb-8">
+          <div className={`text-sm uppercase tracking-wider ${fonts.mono}`}>
+            {department}
+          </div>
+          <div className="absolute top-[140%] left-[20%] h-3 w-[30%] bg-black"></div>
+          <div className="absolute top-[140%] left-[60%] h-3 w-[15%] bg-black"></div>
         </div>
 
-        <div className={`text-4xl font-bold mb-6 ${fonts.display}`}>
+        {/* Title */}
+        <div
+          className={`text-4xl font-bold leading-tight mb-8 ${fonts.display}`}
+        >
           {title}
         </div>
 
-        <div className={`text-lg ${fonts.body}`}>{department}</div>
-
-        {/* Decorative redaction bars */}
-        <div className="mt-8 space-y-2">
-          <div className="h-4 bg-black w-3/4"></div>
-          <div className="h-4 bg-black w-1/2"></div>
+        {/* Bottom metadata */}
+        <div className="flex items-baseline justify-between text-sm">
+          <div className={`${fonts.mono} text-gray-600`}>EYES ONLY</div>
         </div>
+      </div>
+
+      {/* Bottom Classification Bar */}
+      <div className="flex justify-between mt-2">
+        <div className="h-2 w-[30%] bg-black"></div>
+        <div className="h-2 w-[30%] bg-black"></div>
       </div>
     </div>
   );

@@ -1,12 +1,16 @@
 import React from "react";
 
-const fieldsets = {
+export const fieldsets = {
   manifesto: ["department", "title", "subtitle"],
-  redacted: ["department", "title"],
+  redacted: ["department", "title", "clearance"],
   brutalist: ["department", "title"],
   technical: ["department", "title"],
   formal: ["department", "officeOf", "title", "author", "subtitle"],
   split: ["department", "title", "subtitle"],
+  brutalistQuote: ["quote", "section", "context"],
+  technicalQuote: ["quote", "section", "context"],
+  decreeQuote: ["quote", "context"],
+  author: ["name", "role", "bio", "socialHandle", "socialPlatform"],
 };
 
 const labels = {
@@ -15,6 +19,15 @@ const labels = {
   subtitle: "Subtitle",
   officeOf: "Office Of",
   author: "Author",
+  quote: "Quote",
+  section: "Section",
+  context: "Context Type",
+  name: "Name",
+  role: "Role",
+  bio: "Bio",
+  socialHandle: "Social Handle",
+  socialPlatform: "Social Platform",
+  clearance: "Clearance Level",
 };
 
 const MastheadForm = ({ type, values, onChange }) => {
